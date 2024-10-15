@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Buy and Rent Home</title>
+    <base href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link id="theme-css" rel="stylesheet" type="text/css" href="assets/layout/styles/theme/lara-light-indigo/theme.css">
+    <script src="https://kit.fontawesome.com/2e64c1b5cc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+    <style>
+        .loader {
+            position: fixed;
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            text-align: center;
+            opacity: 1;
+            background-color: #fff;
+            z-index: 1000001;
+        }
+
+        .loader-icon {
+            color: #0067b9;
+            font-size: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader" id="main-loader-brh">
+        <i class="fa-solid fa-spin fa-spinner loader-icon"></i>
+    </div>
+    <app-root></app-root>
+</body>
+<script>
+    window.addEventListener('load', function () {
+        const loaderElement = document.getElementById('main-loader-brh');
+        loaderElement.remove();
+    });
+</script>
+
+</html>

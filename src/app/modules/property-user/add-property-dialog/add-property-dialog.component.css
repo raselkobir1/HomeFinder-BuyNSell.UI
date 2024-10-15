@@ -1,0 +1,52 @@
+.app_loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+::ng-deep .p-fileupload .p-fileupload-content {
+    display: none;
+}
+
+::ng-deep .p-fileupload .p-fileupload-buttonbar {
+    border: #0b5ed7 1px dashed;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.showUploadfiles-brh {
+    border: #0b5ed7 1px dashed;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.check-button-over-image {
+    top: -5px;
+    left: -5px;
+    font-size: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.delete-button-over-image {
+    top: -5px;
+    right: -5px;
+    font-size: 15px !important;
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.image-body:hover + .hide {
+    visibility: visible;
+}
+
+:host::ng-deep .p-tabview-panels {
+	height: 60vh !important;
+	max-height: 340px !important;
+	overflow: hidden scroll !important;
+}

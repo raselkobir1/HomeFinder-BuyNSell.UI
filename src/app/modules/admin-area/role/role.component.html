@@ -1,0 +1,33 @@
+<p-table [value]="roleList" [scrollable]="true" scrollHeight="400px" styleClass="p-datatable-sm" [lazy]="true"
+    (onLazyLoad)="loadRoleList($event)" [loading]="isDataLoading"
+    [globalFilterFields]="['name','country.name', 'company', 'representative.name']">
+    <ng-template pTemplate="caption">
+        <div class="align-self-center text-xl font-medium w-100 text-center mb-2" style="color: var(--blue-500);">Role
+        </div>
+        <!-- <div class="table-header gap-2">
+            <span class="p-input-icon-left w-full">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" placeholder="Search Role" class="w-full p-inputtext-sm" />
+            </span>
+            <button pButton pRipple type="button" icon="pi pi-search"
+                class="p-button-success p-button-outlined"></button>
+            <button pButton pRipple type="button" icon="pi pi-plus" style="background-color: var(--blue-500);"
+                (click)="showRoleSaveDialog = true" title="Create Role"></button>
+        </div> -->
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="flex: 0 1 40px;">Id</th>
+            <th style="flex: 0 1 100px;">Name</th>
+            <th>Description</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-role>
+        <tr>
+            <td style="flex: 0 1 40px;">{{role.id}}</td>
+            <td style="flex: 0 1 100px;">{{role.name}}</td>
+            <td class="text-overflow-ellipsis overflow-hidden white-space-nowrap" [pTooltip]="role.description">
+                {{role.description}}</td>
+        </tr>
+    </ng-template>
+</p-table>

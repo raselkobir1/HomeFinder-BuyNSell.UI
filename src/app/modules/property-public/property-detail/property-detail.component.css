@@ -1,0 +1,70 @@
+.card {
+    min-height: 400px;
+}
+
+.gallery-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.card img {
+    height: 250px;
+}
+
+.card-img-wrapper {
+    border-radius: 10px;
+    height: 250px;
+}
+
+.ngx-gallery {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.item {
+    width: 100%;
+    min-height: 120px;
+    max-height: auto;
+    float: left;
+    margin: 3px;
+    padding: 3px;
+}
+
+.cover {
+    object-fit: cover;
+}
+
+#map {
+    height: 180px;
+}
+
+
+.type-detail-small-card {
+    padding: 12px;
+    background: var(--bluegray-100);
+    border-radius: 10px;
+    border: 1px var(--primary-600) solid;
+    margin-bottom: 5px;
+}
+
+.map-container {
+    overflow: hidden;
+}
+
+/* .map-frame {
+    height: 300px;
+} */
+
+#map {
+    height: 400px;
+}
+
+.price-card {
+    background: var(--primary-color);
+    color: var(--surface-b);
+}

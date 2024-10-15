@@ -1,0 +1,52 @@
+<div class="card mb-3 flex flex-row flex-wrap justify-content-center align-items-center gap-4">
+	<div class="flex-1 flex flex-column gap-4 w-100 ">
+		<div>
+			<div class="text-xl font-medium text-truncate text-primary w-100"
+				[pTooltip]="visitingRequestWithPropertyDetail.name.length > 20 ? visitingRequestWithPropertyDetail.name : ''"
+				tooltipPosition="top" [showDelay]="500" style="max-width: 600px;">{{visitingRequestWithPropertyDetail.name}}
+			</div>
+			<div class="text-sm font-medium text-truncate w-100 font-italic" style="max-width: 600px;">Requested By
+				{{visitingRequestWithPropertyDetail.takenByName}}</div>
+		</div>
+		<div class="flex gap-4">
+			<!-- <div><i class="fa-solid fa-calendar-days text-2xl"></i></div> -->
+			<div class="text-lg">
+				<div>{{visitingRequestWithPropertyDetail.startTime | date: 'h:mm a'}} -
+					{{visitingRequestWithPropertyDetail.endTime | date: 'h:mm a'}}</div>
+				<div>{{visitingRequestWithPropertyDetail.dateOn | date: 'EEEE, MMMM d, y'}}</div>
+			</div>
+		</div>
+		<div class="flex gap-4 vertical-align-middle">
+			<div class="m-0 flex align-self-center"><i class="fa-solid fa-square-phone-flip text-3xl text-green-500"></i>
+			</div>
+			<div class="text-lg text-truncate">{{visitingRequestWithPropertyDetail.contactNumber}}</div>
+		</div>
+	</div>
+	<div class="w-8rem flex flex-column flex-sm-row align-items-center justify-content-center gap-2">
+		<ng-container *ngIf="displayApprovalButtons">
+			<div class="w-8rem">
+				<p-button label="Approve" icon="pi pi-check" styleClass="w-full" [loading]="isAcceptInProgress"
+					[disabled]="isRejectInProgress" (onClick)="onApprove($event)"></p-button>
+			</div>
+			<div class="w-8rem">
+				<p-button label="Cancel" icon="pi pi-times" severity="danger"
+					styleClass="p-button-outlined p-button-danger w-full" [loading]="isRejectInProgress"
+					[disabled]="isAcceptInProgress" (onClick)="onCancel($event)"></p-button>
+			</div>
+		</ng-container>
+		<ng-container *ngIf="!displayApprovalButtons">
+			<div class="w-8rem h-full text-xl flex align-items-center justify-content-center p-3 text-center border-round-md"
+				[visitingRequestStatusBg]="visitingRequestWithPropertyDetail.status">
+				{{visitingRequestWithPropertyDetail.status | valueToLabel: visitingRequestStatusList}}</div>
+		</ng-container>
+	</div>
+</div>
+<p-confirmPopup key="acceptTourRequest{{visitingRequestWithPropertyDetail.visitingRequestId}}"
+	*ngIf="displayApprovalButtons"></p-confirmPopup>
+<!-- <p-confirmPopup key="rejectTourRequest{{visitingRequestWithPropertyDetail.visitingRequestId}}"
+	*ngIf="displayApprovalButtons" styleClass="danger-confirm-popup"></p-confirmPopup> -->
+
+<app-cancel-pending-tour-request-modal *ngIf="showCancelPendingTourRequestModal"
+	[(showCancelPendingTourRequestModal)]="showCancelPendingTourRequestModal"
+	(onSuccessfulSave)="onSuccessfulCancelVisitingRequest()"
+	[visitingRequestId]="visitingRequestWithPropertyDetail.visitingRequestId"></app-cancel-pending-tour-request-modal>

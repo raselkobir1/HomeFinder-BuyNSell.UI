@@ -1,0 +1,57 @@
+:host ::ng-deep {
+	.property-card-scroller-container {
+		height: 100px;
+	}
+	.property-card-container {
+		position: relative;
+		width: 200px;
+		height: 100%;
+		border-radius: 15px;
+		overflow: hidden;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+
+	.property-card-image {
+		width: 200px;
+		height: 100px;
+		overflow: hidden;
+		border-radius: 15px;
+		text-align: center;
+	}
+
+	.property-card-image img {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.property-card-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		/* Adjust opacity */
+		z-index: -1;
+	}
+
+	.property-card-content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		padding: 1rem;
+		background-color: rgba(0, 0, 0, 0.6);
+		/* Adjust opacity for visibility */
+		color: white;
+		/* Adjust text color for readability */
+	}
+
+	.selected {
+		border: 4px var(--primary-color) solid;
+	}
+}

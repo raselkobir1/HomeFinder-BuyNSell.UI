@@ -1,0 +1,16 @@
+<p-dialog header="Tour With Property Owner" [modal]="true" [blockScroll]="true"
+	[(visible)]="isVisitingRequestModalVisible" (onHide)="onHideVisitingRequestModalModal()"
+	[style]="{'width': '600px', 'max-width': '98vw'}" [resizable]="false">
+	<ng-container *ngIf="!isDataLoading else skeleton">
+		<div *ngIf="visitingRequestDetailDto">
+			<app-visiting-request-detail [visitingRequestDetail]="visitingRequestDetailDto"></app-visiting-request-detail>
+		</div>
+		<div *ngIf="!visitingRequestDetailDto && isVisitingRequestModalVisible">
+			<app-visiting-request-create [isVisitingRequestModalVisible]="isVisitingRequestModalVisible"
+				[propertyId]="propertyId" [dayAvailabilityList]="dayAvailabilityList" (afterSuccessfulSave)="afterTakingTour($event)"></app-visiting-request-create>
+		</div>
+	</ng-container>
+	<ng-template #skeleton>
+		<app-form-skeleton [row]="1"></app-form-skeleton>
+	</ng-template>
+</p-dialog>
